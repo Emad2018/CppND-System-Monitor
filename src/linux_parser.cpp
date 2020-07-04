@@ -116,7 +116,7 @@ long LinuxParser::UpTime()
       std::istringstream linestream(line);
       (linestream >> value);     
   }
-  return value/sysconf(_SC_CLK_TCK);
+  return value;
 }
 
 // TODO: Read and return the number of jiffies for the system
