@@ -13,7 +13,6 @@ using std::string;
 using std::vector;
 
 // TODO: Return the system's CPU
-System::System(): processes_(LinuxParser::Pids().size(),Process()){}
 Processor& System::Cpu() 
 { 
   return cpu_; 
