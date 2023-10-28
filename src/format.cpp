@@ -1,5 +1,6 @@
-#include <string>
 #include "format.h"
+
+#include <string>
 
 using std::string;
 
@@ -8,17 +9,22 @@ using std::string;
 // OUTPUT: HH:MM:SS
 // REMOVE: [[maybe_unused]] once you define the function
 string standardformat(long number) {
-  if (number < 10)
-    return "0" + std::to_string(number);
-  else
-    return std::to_string(number);
+  string result;
+  if (number < 10) {
+    result = "0" + std::to_string(number);
+  } else {
+    result = std::to_string(number);
+  }
+  return result;
 }
-string Format::ElapsedTime(long seconds) 
-{ 
-  long hour_= seconds/3600;
-  long min_=  ((seconds)-(hour_*3600))/60;
-  long second_= seconds%60;
-  
-  return standardformat(hour_)+":"+standardformat(min_)+":"+standardformat(second_);
-  
+string Format::ElapsedTime(long seconds) {
+  int fhours, fmins, fseconds;
+  string format;
+  fhours = seconds / 3600;
+  fmins = (seconds % 3600) / 60;
+  fseconds = seconds % 60;
+  format = standardformat(fhours) + ":" + standardformat(fmins) + ":" +
+           standardformat(fseconds);
+
+  return format;
 }

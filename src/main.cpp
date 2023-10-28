@@ -1,23 +1,24 @@
-#include "ncurses_display.h"
-#include "system.h"
-#include "linux_parser.h"
-#include "processor.h"
+#include <iostream>
+
 #include "format.h"
+#include "linux_parser.h"
+#include "ncurses_display.h"
+#include "processor.h"
+#include "system.h"
 
+using namespace std;
 int main() {
+  System system;
+  NCursesDisplay::Display(system);
 
-  
- System system;
- NCursesDisplay::Display(system);
-  
   return 0;
 }
 
 /*
 
 cout<<"MemoryUtilization= " <<LinuxParser::MemoryUtilization() <<"\n";
-  cout<<"UpTime= " << LinuxParser::UpTime() <<"\n"; 
-  cout<<"TotalProcesses= " << LinuxParser::TotalProcesses() <<"\n"; 
+  cout<<"UpTime= " << LinuxParser::UpTime() <<"\n";
+  cout<<"TotalProcesses= " << LinuxParser::TotalProcesses() <<"\n";
   cout<<"RunningProcesses= " << LinuxParser::RunningProcesses() <<"\n";
   cout<<"OperatingSystem= " << LinuxParser::OperatingSystem() <<"\n";
   cout<<"CpuUtilization= " << LinuxParser::CpuUtilization()[0] <<"\n";
